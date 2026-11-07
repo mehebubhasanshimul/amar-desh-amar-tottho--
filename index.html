@@ -51,7 +51,6 @@ body{
 }
 @keyframes fall{to{transform:translateY(115vh)}}
 
-/* app wrap for mobile-first frame */
 .app-container{
   max-width:480px;
   margin:0 auto;
@@ -97,7 +96,7 @@ body{
 .dot{width:8px;height:8px;background:var(--bd-red);border-radius:50%;animation:blink 1.2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* hero card with glossy text & shine */
+/* hero card */
 .hero{
   margin:4px 16px 14px;
   padding:22px;
@@ -120,7 +119,7 @@ body{
 @keyframes shine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
 .hero h1{
   font-family:'Baloo Da 2';
-  font-size:30px;
+  font-size:28px;
   line-height:1.15;
   background:linear-gradient(90deg,#fff,var(--bd-gold),#7CFFB2,#fff);
   background-size:300% auto;
@@ -142,7 +141,7 @@ body{
   text-align:center;
 }
 .clock-card small{font-size:11px;opacity:.8;display:block}
-.clock-card b{font-size:18px;display:block;margin:2px 0;font-family:'Baloo Da 2'}
+.clock-card b{font-size:17px;display:block;margin:2px 0;font-family:'Baloo Da 2'}
 .clock-card span{font-size:11px;color:var(--bd-gold);font-weight:600}
 
 /* weather widget */
@@ -158,9 +157,9 @@ body{
   justify-content:space-between;
   align-items:center;
 }
-.main-weather h3{font-size:28px;font-family:'Baloo Da 2';line-height:1}
+.main-weather h3{font-size:26px;font-family:'Baloo Da 2';line-height:1}
 .main-weather p{font-size:12px;opacity:.85;margin-top:4px}
-.weather-icon{font-size:42px;animation:cloudFloat 4s ease-in-out infinite}
+.weather-icon{font-size:40px;animation:cloudFloat 4s ease-in-out infinite}
 @keyframes cloudFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .sub-weather{flex:1;display:flex;flex-direction:column;gap:8px}
 .sub-weather div{
@@ -172,7 +171,7 @@ body{
   text-align:center;
   font-size:11px;
 }
-.sub-weather b{display:block;font-size:13px;color:var(--bd-gold);margin-top:2px}
+.sub-weather b{display:block;font-size:12.5px;color:var(--bd-gold);margin-top:2px}
 
 /* ticker marquee */
 .marq{
@@ -187,7 +186,7 @@ body{
 .marq span{
   display:inline-block;
   padding-left:100%;
-  animation:marquee 20s linear infinite;
+  animation:marquee 22s linear infinite;
   font-size:13px;
   color:var(--bd-gold);
   font-weight:600;
@@ -205,7 +204,7 @@ body{
 }
 .search-card h3{font-family:'Baloo Da 2';font-size:18px;color:#004d39}
 .search-card p{font-size:12px;color:#666}
-select,input{
+select,input,textarea{
   width:100%;
   padding:12px 14px;
   margin-top:10px;
@@ -218,7 +217,7 @@ select,input{
   outline:none;
   transition:all .2s;
 }
-select:focus,input:focus{border-color:var(--bd-green);background:#fff}
+select:focus,input:focus,textarea:focus{border-color:var(--bd-green);background:#fff}
 .btn{
   width:100%;
   padding:14px;
@@ -231,9 +230,7 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   font-weight:700;
   cursor:pointer;
   box-shadow:0 6px 20px rgba(0,106,78,.4);
-  transition:transform .1s active;
 }
-.btn:active{transform:scale(.98)}
 
 /* section titles */
 .sec-title{margin:18px 20px 10px;display:flex;justify-content:space-between;align-items:center}
@@ -247,7 +244,7 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   font-weight:700;
 }
 
-/* dashboard grid */
+/* grid */
 .grid{margin:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .card{
   background:var(--glass-bg);
@@ -269,7 +266,7 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   background:rgba(255,255,255,.15);
 }
 .card h4{font-size:14px;margin-top:10px}
-.card p{font-size:11.5px;opacity:.85;margin-top:4px;min-height:32px;line-height:1.4}
+.card p{font-size:11.5px;opacity:.85;margin-top:4px;min-height:30px;line-height:1.4}
 .card b{font-size:15px;color:var(--bd-gold);display:block;margin-top:4px}
 .badge-tag{
   position:absolute;
@@ -293,8 +290,8 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
 .data-row:last-child{border:none}
 .data-row b{color:var(--bd-gold)}
 
-/* emergency banner */
-.emg{
+/* Emergency & Category numbers styling */
+.emg-banner{
   margin:18px 16px 14px;
   background:linear-gradient(135deg,var(--bd-red),#ff5252);
   border-radius:24px;
@@ -304,8 +301,8 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   align-items:center;
   box-shadow:0 10px 25px rgba(244,42,65,.35);
 }
-.emg h3{font-family:'Baloo Da 2';font-size:18px}
-.emg p{font-size:12px;opacity:.9}
+.emg-banner h3{font-family:'Baloo Da 2';font-size:18px}
+.emg-banner p{font-size:12px;opacity:.9}
 .call-btn{
   background:#fff;
   color:var(--bd-red);
@@ -317,7 +314,64 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
 
-/* shadow joker credit section */
+/* Category filter buttons */
+.cat-scroll{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  margin:10px 16px 16px;
+  padding-bottom:4px;
+  scrollbar-width:none;
+}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-btn{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:100px;
+  font-size:13px;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:inherit;
+}
+.cat-btn.active{
+  background:var(--bd-gold);
+  color:#000;
+  font-weight:700;
+  border-color:var(--bd-gold);
+}
+
+/* Number Item Card */
+.num-card{
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:18px;
+  padding:14px 16px;
+  margin:0 16px 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.num-info h4{font-size:15px;font-family:'Baloo Da 2';color:var(--bd-gold)}
+.num-info p{font-size:11.5px;opacity:.85;margin-top:2px;max-width:240px}
+.num-dial{
+  background:var(--bd-green);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  box-shadow:0 4px 12px rgba(0,106,78,.4);
+}
+
+/* credit card */
 .credit-card{
   margin:24px 16px 0;
   text-align:center;
@@ -325,8 +379,6 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   border-radius:24px;
   background:rgba(0,0,0,.45);
   border:1px solid rgba(255,215,0,.35);
-  position:relative;
-  overflow:hidden;
 }
 .sj-title{
   font-family:'Baloo Da 2';
@@ -341,10 +393,8 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
 }
 .credit-card p{font-size:12px;opacity:.85;margin-top:4px}
 .credit-card small{font-size:10.5px;opacity:.65;display:block;margin-top:2px}
-.credit-links{margin-top:10px;font-size:12px}
-.credit-links a{color:var(--bd-gold);text-decoration:none;font-weight:600}
 
-/* bottom mobile navigation */
+/* bottom nav */
 .nav{
   position:fixed;
   bottom:0;
@@ -369,7 +419,6 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
 .nav-item.active{opacity:1;color:var(--bd-gold)}
 .nav-item div{font-size:20px;margin-bottom:2px}
 
-/* toast alert */
 .toast{
   position:fixed;
   bottom:85px;
@@ -387,6 +436,9 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
   white-space:nowrap;
 }
 
+.view-section { display: none; }
+.view-section.active { display: block; }
+
 @media(min-width:700px){
   .nav{max-width:480px;left:50%;transform:translateX(-50%)}
 }
@@ -398,7 +450,8 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
 <div class="rain" id="rain"></div>
 
 <div class="app-container">
-  <!-- Top App Bar -->
+  
+  <!-- TOP APP BAR -->
   <div class="top">
     <div class="logo">
       <div class="flag-badge">🇧🇩</div>
@@ -412,153 +465,224 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>আমার দেশ,<br>আমার তথ্য 🇧🇩</h1>
-    <p>সব তথ্য লাইভ — সরকারি ও ওপেন সোর্স থেকে। না পেলে <b>পাওয়া যাচ্ছে না</b> দেখাবে।</p>
-    <div class="clock-grid">
-      <div class="clock-card">
-        <small>🕒 বাংলাদেশ সময়</small>
-        <b id="clock">--:--:--</b>
-        <span id="date">--</span>
-      </div>
-      <div class="clock-card">
-        <small>📍 তোমার জেলা</small>
-        <b id="myDistrict">ঢাকা</b>
-        <span>৬৪ জেলা • Live</span>
+  <!-- ================= VIEW 1: HOME ================= -->
+  <div id="view-home" class="view-section active">
+    
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>আমার দেশ,<br>আমার তথ্য 🇧🇩</h1>
+      <p>সকল সরকারি সেবা, লাইভ বাজারদর, আবহাওয়া ও জরুরি নাম্বার এক ঠিকানায়।</p>
+      <div class="clock-grid">
+        <div class="clock-card">
+          <small>🕒 বাংলাদেশ সময়</small>
+          <b id="clock">--:--:--</b>
+          <span id="date">--</span>
+        </div>
+        <div class="clock-card">
+          <small>📍 আমার এলাকা</small>
+          <b id="myDistrict">ঢাকা</b>
+          <span>অটো সেভড</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Weather Widget -->
-  <div class="weather-container">
-    <div class="main-weather">
+    <!-- Weather Widget -->
+    <div class="weather-container">
+      <div class="main-weather">
+        <div>
+          <h3 id="temp">31°C</h3>
+          <p id="wText">ঢাকা • আংশিক মেঘলা</p>
+          <p style="font-size:11px;margin-top:6px;opacity:.8;">💧 <span id="hum">78%</span> • 🌬️ <span id="wind">12 km/h</span></p>
+        </div>
+        <div class="weather-icon" id="wIcon">⛅</div>
+      </div>
+      <div class="sub-weather">
+        <div>🌅 সূর্যোদয়<b id="sunrise">5:58 AM</b></div>
+        <div>🌇 সূর্যাস্ত<b id="sunset">5:22 PM</b></div>
+      </div>
+    </div>
+
+    <!-- Ticker Marquee -->
+    <div class="marq">
+      <span>⚡ জরুরি ৯৯৯ • স্বাস্থ্য ১৬২৬৩ • ফায়ার ১৬১৬৩ • টিসিবি বাজারদর লাইভ • যেকোনো বিপদে ২৪ ঘণ্টা সেবা চালু আছে 🇧🇩</span>
+    </div>
+
+    <!-- District Selection Card -->
+    <div class="search-card">
+      <h3>🔍 জেলা সিলেক্ট করুন ("আমার এলাকা")</h3>
+      <p>আপনার জেলার লাইভ তথ্য দেখতে বিভাগ ও জেলা বাছুন</p>
+      <select id="division" onchange="loadDistricts()">
+        <option value="">বিভাগ বাছুন</option>
+      </select>
+      <select id="district" onchange="onDistrictChange()">
+        <option value="">জেলা বাছুন</option>
+      </select>
+      <button class="btn" onclick="saveDistrict()">💾 এলাকা স্থায়ী করুন</button>
+    </div>
+
+    <!-- Live Dashboard -->
+    <div class="sec-title">
+      <h2>⚡ লাইভ ড্যাশবোর্ড</h2>
+      <span id="updateTime">আপডেট হচ্ছে...</span>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="badge-tag">LIVE</span>
+        <div class="ic">⛽</div>
+        <h4>জ্বালানি তেল</h4>
+        <p id="fuelText">লোড হচ্ছে...</p>
+        <b id="fuelVal">--</b>
+      </div>
+
+      <div class="card">
+        <span class="badge-tag" style="background:#00e676;color:#000">LIVE</span>
+        <div class="ic">⚡</div>
+        <h4>বিদ্যুৎ গ্রিড</h4>
+        <p>PGCB জেনারেশন অবস্থা</p>
+        <b id="powerVal">-- MW</b>
+      </div>
+
+      <div class="card">
+        <span class="badge-tag" style="background:var(--bd-gold);color:#000">BAJUS</span>
+        <div class="ic">🪙</div>
+        <h4>স্বর্ণের দাম</h4>
+        <p>২২ ক্যারেট (প্রতি ভরি)</p>
+        <b id="goldVal">১,১৮,৫০ টাকা</b>
+      </div>
+
+      <div class="card">
+        <span class="badge-tag" style="background:#3b82f6">FOREX</span>
+        <div class="ic">💵</div>
+        <h4>ডলার রেট (USD)</h4>
+        <p>ব্যাংক ও কার্ব মার্কেট</p>
+        <b id="usdVal">১১৯.৫০ টাকা</b>
+      </div>
+
+      <!-- Prayer & Sehri Times -->
+      <div class="card full-width">
+        <span class="badge-tag" style="background:var(--bd-green)">ইসলামিক</span>
+        <h4>🌙 নামাজের সময় ও সেহরি / ইফতার</h4>
+        <div class="data-row"><span>সেহরি শেষ সময়</span><b id="sehriTime">৪:৫৫ AM</b></div>
+        <div class="data-row"><span>ফজর</span><b id="fajrTime">৫:০৫ AM</b></div>
+        <div class="data-row"><span>মাগরিব / ইফতার</span><b id="iftarTime">৫:২০ PM</b></div>
+      </div>
+
+      <!-- TCB Market Prices -->
+      <div class="card full-width">
+        <span class="badge-tag" style="background:var(--bd-gold);color:#000">TCB / DAM</span>
+        <h4>🛒 নিত্যপণ্যের লাইভ বাজারদর</h4>
+        <p id="marketText" style="margin-top:6px;font-size:12.5px;">লোড হচ্ছে...</p>
+      </div>
+    </div>
+
+    <!-- Emergency Banner -->
+    <div class="emg-banner">
       <div>
-        <h3 id="temp">31°C</h3>
-        <p id="wText">ঢাকা • আংশিক মেঘলা</p>
-        <p style="font-size:11px;margin-top:6px;opacity:.8;">💧 <span id="hum">78%</span> • 🌬️ <span id="wind">12 km/h</span></p>
+        <h3>🚨 যেকোনো জরুরি সাহায্য</h3>
+        <p>জাতীয় জরুরি সেবা • ২৪ ঘণ্টা ফ্রি</p>
       </div>
-      <div class="weather-icon" id="wIcon">⛅</div>
+      <a class="call-btn" href="tel:999">📞 ৯৯৯</a>
     </div>
-    <div class="sub-weather">
-      <div>🌅 সূর্যোদয়<b id="sunrise">5:58 AM</b></div>
-      <div>🌇 সূর্যাস্ত<b id="sunset">5:22 PM</b></div>
+
+  </div>
+
+  <!-- ================= VIEW 2: NUMBERS ================= -->
+  <div id="view-numbers" class="view-section">
+    <div class="sec-title" style="margin-top:16px;">
+      <h2>📞 জরুরি ও পাবলিক নাম্বার</h2>
+      <span>সকল হেল্পলাইন</span>
+    </div>
+    
+    <!-- Big 999 Highlight Box -->
+    <div style="margin:0 16px 14px;background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid var(--bd-gold);border-radius:22px;padding:18px;text-align:center;">
+      <span style="font-size:11px;color:var(--bd-gold);font-weight:700;">সর্বোচ্চ জরুরি সেবা</span>
+      <h2 style="font-size:38px;font-family:'Baloo Da 2';color:#ff4d4d;margin:4px 0;">৯৯৯</h2>
+      <p style="font-size:12.5px;opacity:.9;margin-bottom:12px;">পুলিশ, ফায়ার সার্ভিস ও অ্যাম্বুলেন্স — যেকোনো বিপদে কল করুন। সম্পূর্ণ ফ্রি!</p>
+      <a href="tel:999" class="call-btn" style="background:var(--bd-red);color:#fff;display:inline-block;padding:10px 24px;">📞 এখনই কল করুন (999)</a>
+    </div>
+
+    <!-- Category Filter Scroll -->
+    <div class="cat-scroll" id="catScroll">
+      <button class="cat-btn active" onclick="filterNumbers('সব', this)">সব নাম্বার</button>
+      <button class="cat-btn" onclick="filterNumbers('জরুরি', this)">জরুরি</button>
+      <button class="cat-btn" onclick="filterNumbers('স্বাস্থ্য', this)">স্বাস্থ্য</button>
+      <button class="cat-btn" onclick="filterNumbers('নারী-শিশু', this)">নারী ও শিশু</button>
+      <button class="cat-btn" onclick="filterNumbers('সরকারি', this)">সরকারি তথ্য</button>
+      <button class="cat-btn" onclick="filterNumbers('বিদ্যুৎ-গ্যাস-পানি', this)">ইউটিলিটি</button>
+      <button class="cat-btn" onclick="filterNumbers('অন্যান্য', this)">অন্যান্য</button>
+    </div>
+
+    <div id="numbersContainer">
+      <!-- Dynamic numbers loaded here -->
     </div>
   </div>
 
-  <!-- Ticker Marquee -->
-  <div class="marq">
-    <span>⚡ লাইভ: ডিজেল ১৩৫ • অকটেন ১৬৫ • পেট্রোল ১৬০ • কেরোসিন ১৫৫ টাকা • জরুরি ৯৯৯ • স্বাস্থ্য ১৬২৬৩ • ফায়ার ১৬১৬৩ 🇧🇩</span>
+  <!-- ================= VIEW 3: COMPLAINT / SUBMIT ================= -->
+  <div id="view-submit" class="view-section">
+    <div class="sec-title" style="margin-top:16px;">
+      <h2>📝 বাজারদর ও অভিযোগ বাক্স</h2>
+      <span>পাবলিক কন্ট্রিবিউশন</span>
+    </div>
+
+    <div class="search-card" style="margin-top:0;">
+      <h3>🛒 স্থানীয় বাজারদর জমা দিন</h3>
+      <p>আপনার এলাকার নিত্যপণ্যের সঠিক দাম দিন (Admin যাচাই করবে)</p>
+      <input id="p_name" placeholder="পণ্যের নাম (যেমন: দেশি পেঁয়াজ)">
+      <input id="p_price" type="number" placeholder="দাম (টাকা প্রতি কেজি/লিটার)">
+      <button class="btn" onclick="submitPrice()">বাণিজ্যিক মূল্য জমা দিন →</button>
+      <p id="submitMsg" style="margin-top:8px;font-size:12px;color:green;font-weight:600;"></p>
+    </div>
+
+    <div class="search-card" style="margin-top:14px;">
+      <h3>📢 এলাকার সমস্যা অভিযোগ বাক্স</h3>
+      <p>রাস্তা ভাঙা, পানি বা বিদ্যুৎ সমস্যা ছবি বা বিবরণসহ জানান</p>
+      <select id="cmp_cat">
+        <option value="বিদ্যুৎ">বিদ্যুৎ বিভ্রাট</option>
+        <option value="পানি ও ওয়াসা">পানি ও ওয়াসা সমস্যা</option>
+        <option value="সড়ক ও রাস্তা">ভাঙা রাস্তা / ড্রেনেজ</option>
+        <option value="অন্যান্য">অন্যান্য জনদুর্ভোগ</option>
+      </select>
+      <textarea id="cmp_details" rows="3" placeholder="সমস্যার বিবরণ ও সুনির্দিষ্ট এলাকা লিখুন..."></textarea>
+      <input id="cmp_phone" type="tel" placeholder="আপনার মোবাইল নাম্বার (ঐচ্ছিক)">
+      <button class="btn" style="background:linear-gradient(135deg,#f59e0b,#d97706)" onclick="submitComplaint()">অভিযোগ সাবমিট করুন</button>
+      <p id="cmpMsg" style="margin-top:8px;font-size:12px;color:green;font-weight:600;"></p>
+    </div>
   </div>
 
-  <!-- Search Card -->
-  <div class="search-card">
-    <h3>🔍 ৬৪ জেলা থেকে খুঁজুন</h3>
-    <p>জেলা বাছলে ওই জেলার সব লাইভ তথ্য দেখাবে</p>
-    <select id="division" onchange="loadDistricts()">
-      <option value="">বিভাগ বাছুন</option>
-    </select>
-    <select id="district" onchange="onDistrictChange()">
-      <option value="">জেলা বাছুন</option>
-    </select>
-    <button class="btn" onclick="loadAll()">✨ লাইভ তথ্য দেখুন</button>
-  </div>
-
-  <!-- Live Dashboard Header -->
-  <div class="sec-title">
-    <h2>⚡ লাইভ ড্যাশবোর্ড</h2>
-    <span id="updateTime">আপডেট হচ্ছে...</span>
-  </div>
-
-  <!-- Dashboard Grid -->
-  <div class="grid">
-    <div class="card">
-      <span class="badge-tag">LIVE</span>
-      <div class="ic">⛽</div>
-      <h4>জ্বালানি তেল</h4>
-      <p id="fuelText">লোড হচ্ছে...</p>
-      <b id="fuelVal">--</b>
+  <!-- ================= VIEW 4: PROFILE / ABOUT ================= -->
+  <div id="view-profile" class="view-section">
+    <div class="sec-title" style="margin-top:16px;">
+      <h2>👤 প্রফাইল ও ডেভেলপার</h2>
+      <span>অ্যাপ ইনফো</span>
     </div>
 
-    <div class="card">
-      <span class="badge-tag" style="background:#00e676;color:#000">LIVE</span>
-      <div class="ic">⚡</div>
-      <h4>বিদ্যুৎ উৎপাদন</h4>
-      <p id="powerText">PGCB Live থেকে...</p>
-      <b id="powerVal">-- MW</b>
-    </div>
-
-    <div class="card">
-      <span class="badge-tag" style="background:var(--bd-gold);color:#000">DGHS</span>
-      <div class="ic">🏥</div>
-      <h4>হাসপাতাল</h4>
-      <p id="hospText">জেলা বাছুন</p>
-      <b>১৬২৬৩</b>
-    </div>
-
-    <div class="card">
-      <span class="badge-tag">৯৯৯</span>
-      <div class="ic">🔥</div>
-      <h4>ফায়ার সার্ভিস</h4>
-      <p id="fireText">জরুরি: ৯৯৯</p>
-      <b>১৬১৬৩</b>
-    </div>
-
-    <!-- Power & Station info -->
-    <div class="card full-width">
-      <h4>🏭 বিদ্যুৎ কেন্দ্র + ফিলিং স্টেশন</h4>
-      <div class="data-row">
-        <span>বিদ্যুৎ কেন্দ্র (BPDB)</span>
-        <b id="plantStatus">লাইভ যাচাই চলছে</b>
+    <div class="credit-card" style="margin:0 16px;">
+      <div class="sj-title">✦ SHADOW JOKER ✦</div>
+      <p>Lead Designer & Full-Stack Developer</p>
+      <small style="margin-top:6px;line-height:1.5;">আমার দেশ, আমার তথ্য • Live Bangladesh v3.0<br>বাংলাদেশের সকল রিয়েল-টাইম নাগরিক সেবা ও লাইভ ডেটা নিয়ে গঠিত একটি প্রিমিয়াম মোবাইল অ্যাপ্লিকেশন।</small>
+      <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;">
+        <a href="/docs" target="_blank" class="call-btn" style="font-size:12px;padding:8px 14px;">API Docs</a>
+        <a href="/health" target="_blank" class="call-btn" style="font-size:12px;padding:8px 14px;background:#006A4E;color:#fff;">Health Status</a>
       </div>
-      <div class="data-row">
-        <span>ফিলিং স্টেশন (<span id="fillDist">ঢাকা</span>)</span>
-        <b id="fillVal">BPC তালিকা থেকে</b>
-      </div>
-      <div class="data-row">
-        <span>উৎস</span>
-        <b style="font-size:12px;">সরকারি / Open Source</b>
-      </div>
-    </div>
-
-    <!-- Submission Card -->
-    <div class="card full-width" style="background:linear-gradient(135deg,rgba(0,106,78,.7),rgba(0,0,0,.5))">
-      <h4>📝 বাজারদর জমা দিন</h4>
-      <p style="margin-top:4px;font-size:12px;">Admin যাচাই ছাড়া প্রকাশ হবে না</p>
-      <input id="p_name" placeholder="পণ্যের নাম - যেমন: আলু">
-      <input id="p_price" type="number" placeholder="দাম (টাকা)">
-      <button class="btn" onclick="submitPrice()" style="background:var(--bd-gold);color:#000;">জমা দিন →</button>
-      <p id="submitMsg" style="margin-top:8px;font-size:12px;"></p>
     </div>
   </div>
 
-  <!-- Emergency Card -->
-  <div class="emg">
-    <div>
-      <h3>🚨 জরুরি সাহায্য দরকার?</h3>
-      <p>জাতীয় জরুরি সেবা • ২৪ ঘণ্টা</p>
-    </div>
-    <a class="call-btn" href="tel:999">📞 ৯৯৯</a>
-  </div>
-
-  <!-- Credit Card Section -->
+  <!-- CREDIT FOOTER -->
   <div class="credit-card">
-    <div class="sj-title">✦ SHADOW JOKER ✦</div>
+    <div class="sj-title" style="font-size:18px;">✦ SHADOW JOKER ✦</div>
     <p>Designed & Developed by <b>SHADOW JOKER</b></p>
-    <small>আমার দেশ, আমার তথ্য • Live Bangladesh • v2.0 • Made with ❤️ in Bangladesh 🇧🇩</small>
-    <div class="credit-links">
-      <a href="/docs" target="_blank">API Docs</a> • <a href="/health" target="_blank">Health Status</a> • <span id="footerDate"></span>
-    </div>
+    <small>Made with ❤️ in Bangladesh 🇧🇩 • <span id="footerDate"></span></small>
   </div>
+
 </div>
 
-<!-- Bottom Navigation Frame -->
+<!-- BOTTOM NAVIGATION -->
 <div class="nav">
-  <div class="nav-item active" onclick="setNav(this)"><div>🏠</div>হোম</div>
-  <div class="nav-item" onclick="loadAll();setNav(this)"><div>⚡</div>লাইভ</div>
-  <div class="nav-item" onclick="showToast('৬৪ জেলা থেকে তথ্য লোড হচ্ছে...');setNav(this)"><div>📍</div>জেলা</div>
-  <div class="nav-item" onclick="showToast('জাতীয় জরুরি সেবা: ৯৯৯');setNav(this)"><div>🚨</div>জরুরি</div>
-  <div class="nav-item" onclick="showToast('SHADOW JOKER • Premium Edition');setNav(this)"><div>👤</div>প্রোফাইল</div>
+  <div class="nav-item active" onclick="switchView('home', this)"><div>🏠</div>হোম</div>
+  <div class="nav-item" onclick="switchView('numbers', this)"><div>📞</div>জরুরি নাম্বার</div>
+  <div class="nav-item" onclick="switchView('submit', this)"><div>📝</div>বাজার/অভিযোগ</div>
+  <div class="nav-item" onclick="switchView('profile', this)"><div>👤</div>প্রোফাইল</div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -566,10 +690,11 @@ select:focus,input:focus{border-color:var(--bd-green);background:#fff}
 <script>
 const API = window.location.origin;
 let divisionsData = {};
+let allPublicNumbers = {};
 
-// Rain simulation effect generator
+// Rain simulation
 const rainEl = document.getElementById('rain');
-for(let i=0; i<30; i++){
+for(let i=0; i<25; i++){
   let d = document.createElement('div');
   d.className = 'drop';
   d.style.left = Math.random()*100+'%';
@@ -578,7 +703,7 @@ for(let i=0; i<30; i++){
   rainEl.appendChild(d);
 }
 
-// Live Time and Date simulation
+// Clock ticker
 function tick(){
   let n = new Date();
   document.getElementById('clock').innerText = n.toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
@@ -589,18 +714,17 @@ function tick(){
 setInterval(tick, 1000);
 tick();
 
-// Weather simulation effect
-let temps = [29, 30, 31, 32, 31, 30], idx = 0;
-setInterval(()=>{
-  idx = (idx + 1) % temps.length;
-  document.getElementById('temp').innerText = temps[idx] + '°C';
-  document.getElementById('wIcon').innerText = ['⛅','🌤️','☁️','🌦️','⛅','🌤️'][idx];
-  document.getElementById('hum').innerText = (74 + idx*2) + '%';
-  document.getElementById('wind').innerText = (10 + idx*2) + ' km/h';
-}, 4000);
+// Bottom Nav View Switcher
+function switchView(viewName, el){
+  document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + viewName).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  if(el) el.classList.add('active');
+  window.scrollTo(0,0);
+}
 
-// FastAPI Backend Data Fetching Initialization
-async function init(){
+// Load Districts & LocalStorage "আমার এলাকা"
+async function initApp(){
   try {
     let r = await fetch(API + '/districts');
     let j = await r.json();
@@ -608,14 +732,22 @@ async function init(){
     let sel = document.getElementById('division');
     Object.keys(divisionsData).forEach(d=>{
       let o = document.createElement('option');
-      o.value = d;
-      o.text = d;
+      o.value = d; o.text = d;
       sel.appendChild(o);
     });
-  } catch(e){
-    console.error("District fetch error:", e);
+  } catch(e){}
+
+  // Load Saved District from LocalStorage
+  let savedDist = localStorage.getItem('amar_desh_district');
+  if(savedDist){
+    document.getElementById('myDistrict').innerText = savedDist;
+    loadAllData(savedDist);
+  } else {
+    loadAllData('ঢাকা');
   }
-  loadAll();
+
+  // Load Public Numbers
+  loadPublicNumbers();
 }
 
 function loadDistricts(){
@@ -625,8 +757,7 @@ function loadDistricts(){
   if(divisionsData[div]){
     divisionsData[div].forEach(d=>{
       let o = document.createElement('option');
-      o.value = d;
-      o.text = d;
+      o.value = d; o.text = d;
       sel.appendChild(o);
     });
   }
@@ -636,62 +767,170 @@ function onDistrictChange(){
   let d = document.getElementById('district').value;
   if(d){
     document.getElementById('myDistrict').innerText = d;
-    document.getElementById('fillDist').innerText = d;
     document.getElementById('wText').innerText = d + ' • আংশিক মেঘলা';
-    loadAll();
+    loadAllData(d);
   }
 }
 
-// Fetching all live data matching backend endpoints
-async function loadAll(){
-  let dist = document.getElementById('district')?.value || '';
+function saveDistrict(){
+  let d = document.getElementById('district').value;
+  if(!d){
+    showToast('দয়া করে একটি জেলা সিলেক্ট করুন');
+    return;
+  }
+  localStorage.setItem('amar_desh_district', d);
+  showToast('✅ আপনার এলাকা "' + d + '" স্থায়ীভাবে সেভ হলো!');
+}
+
+// Fetch all live dashboard data
+async function loadAllData(dist){
   document.getElementById('updateTime').innerText = 'আপডেট: ' + new Date().toLocaleTimeString('bn-BD');
   try {
-    let r = await fetch(API + '/live/all' + (dist ? '?district=' + encodeURIComponent(dist) : ''));
+    let r = await fetch(API + '/live/all?district=' + encodeURIComponent(dist));
     let j = await r.json();
     
-    // Fuel Data
     if(j.fuel && j.fuel.items){
       document.getElementById('fuelText').innerText = j.fuel.items.map(x => x.item + ' ' + x.value).join(' • ');
       document.getElementById('fuelVal').innerText = 'ডিজেল ' + j.fuel.items[0].value + ' টাকা';
     }
-    
-    // Power Generation Data
-    if(j.power){
-      if(j.power.generation_mw) {
-        document.getElementById('powerVal').innerText = j.power.generation_mw + ' MW';
-        document.getElementById('powerText').innerText = 'PGCB Live থেকে প্রাপ্ত';
-      } else {
-        document.getElementById('powerVal').innerText = 'পাওয়া যাচ্ছে না';
-        document.getElementById('powerText').innerText = j.power.note || 'ডেটা অনুপলব্ধ';
-      }
+    if(j.power && j.power.generation_mw){
+      document.getElementById('powerVal').innerText = j.power.generation_mw + ' MW';
     }
-    
-    // Hospitals Data
-    if(j.hospitals){
-      document.getElementById('hospText').innerText = j.hospitals.district + ' - ' + j.hospitals.status;
+    if(j.weather){
+      document.getElementById('temp').innerText = j.weather.temp;
+      document.getElementById('hum').innerText = j.weather.humidity;
+      document.getElementById('wind').innerText = j.weather.wind;
+      document.getElementById('sunrise').innerText = j.weather.sunrise;
+      document.getElementById('sunset').innerText = j.weather.sunset;
     }
-    
-    // Fire Service Data
-    if(j.fire_service){
-      document.getElementById('fireText').innerText = 'জরুরি: ৯৯৯ • ফায়ার: ' + j.fire_service.fire_service_hotline;
+    if(j.prayer){
+      document.getElementById('sehriTime').innerText = j.prayer.sehri_ends;
+      document.getElementById('fajrTime').innerText = j.prayer.fajr;
+      document.getElementById('iftarTime').innerText = j.prayer.iftar;
     }
-    
-    // Filling Stations Data
-    if(j.filling_stations){
-      document.getElementById('fillVal').innerText = j.filling_stations.status;
+    if(j.market && j.market.items){
+      document.getElementById('marketText').innerText = j.market.items.map(x => x.item + ': ' + x.price + ' ' + x.unit).join(' • ');
     }
 
-    // Power Plants Data
-    if(j.power_plants){
-      document.getElementById('plantStatus').innerText = j.power_plants.status;
+    // Load Gold & Forex rates
+    let fgRes = await fetch(API + '/live/currency-gold');
+    let fgJ = await fgRes.json();
+    if(fgJ.gold){
+      document.getElementById('goldVal').innerText = fgJ.gold.vorti_22k;
+    }
+    if(fgJ.forex){
+      let usd = fgJ.forex.find(x => x.currency.includes('USD'));
+      if(usd) document.getElementById('usdVal').innerText = usd.buy + ' টাকা';
     }
 
   } catch(e){
-    console.error("Live sync error:", e);
-    document.getElementById('fuelText').innerText = 'ডিজেল ১৩৫ • অকটেন ১৬৫ • পেট্রোল ১৬০';
-    document.getElementById('fuelVal').innerText = 'ডিজেল ১৩৫ টাকা';
-    document.getElementById('powerText').innerText = 'সার্ভার সংযোগ সমস্যা...';
+    console.error("Data fetch error:", e);
+  }
+}
+
+// Load Public Numbers with category filter
+async function loadPublicNumbers(){
+  try {
+    let r = await fetch(API + '/live/public-numbers');
+    let j = await r.json();
+    allPublicNumbers = j.categories;
+    renderNumbersList(allPublicNumbers);
+  } catch(e){
+    console.error(e);
+  }
+}
+
+function renderNumbersList(categoriesObj){
+  let container = document.getElementById('numbersContainer');
+  container.innerHTML = '';
+  
+  Object.keys(categoriesObj).forEach(cat => {
+    let list = categoriesObj[cat];
+    list.forEach(item => {
+      let card = document.createElement('div');
+      card.className = 'num-card';
+      card.setAttribute('data-category', cat);
+      card.innerHTML = `
+        <div class="num-info">
+          <span style="font-size:10px;background:rgba(255,215,0,.2);color:var(--bd-gold);padding:2px 8px;border-radius:100px;font-weight:700;">${cat}</span>
+          <h4 style="margin-top:4px;">${item.name}</h4>
+          <p>${item.desc}</p>
+        </div>
+        <a href="tel:${item.number}" class="num-dial">📞 ${item.number}</a>
+      `;
+      container.appendChild(card);
+    });
+  });
+}
+
+function filterNumbers(catName, btn){
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  let cards = document.querySelectorAll('.num-card');
+  cards.forEach(card => {
+    if(catName === 'সব' || card.getAttribute('data-category') === catName){
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Public Market Price Submission
+async function submitPrice(){
+  let name = document.getElementById('p_name').value;
+  let price = document.getElementById('p_price').value;
+  if(!name || !price){
+    showToast('পণ্যের নাম ও দাম লিখুন');
+    return;
+  }
+  try {
+    let r = await fetch(API + '/public-submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        module: "নিত্যপণ্য",
+        item: name,
+        region_name: localStorage.getItem('amar_desh_district') || 'ঢাকা',
+        value: parseFloat(price)
+      })
+    });
+    let j = await r.json();
+    document.getElementById('submitMsg').innerText = '✅ সফলভাবে জমা হয়েছে! ID: ' + j.id;
+    document.getElementById('p_name').value = '';
+    document.getElementById('p_price').value = '';
+  } catch(e){
+    showToast('নেটওয়ার্ক সমস্যা');
+  }
+}
+
+// Complaint Box Submission
+async function submitComplaint(){
+  let cat = document.getElementById('cmp_cat').value;
+  let details = document.getElementById('cmp_details').value;
+  let phone = document.getElementById('cmp_phone').value;
+  if(!details){
+    showToast('অভিযোগের বিবরণ লিখুন');
+    return;
+  }
+  try {
+    let r = await fetch(API + '/api/complaint', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        district: localStorage.getItem('amar_desh_district') || 'ঢাকা',
+        category: cat,
+        details: details,
+        phone: phone
+      })
+    });
+    let j = await r.json();
+    document.getElementById('cmpMsg').innerText = '✅ অভিযোগ রেজিস্টার্ড! টিকেট ID: ' + j.ticket_id;
+    document.getElementById('cmp_details').value = '';
+    document.getElementById('cmp_phone').value = '';
+  } catch(e){
+    showToast('সাবমিট করতে সমস্যা হয়েছে');
   }
 }
 
@@ -699,45 +938,10 @@ function showToast(m){
   let t = document.getElementById('toast');
   t.innerText = m;
   t.style.display = 'block';
-  setTimeout(()=> t.style.display = 'none', 2200);
+  setTimeout(()=> t.style.display = 'none', 2500);
 }
 
-function setNav(el){
-  document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// Public Submission API Handler
-async function submitPrice(){
-  let name = document.getElementById('p_name').value;
-  let price = document.getElementById('p_price').value;
-  if(!name || !price){
-    showToast('দয়া করে পণ্যের নাম ও দাম লিখুন');
-    return;
-  }
-  let body = {
-    module: "নিত্যপণ্য",
-    item: name,
-    region_name: document.getElementById('district').value || 'ঢাকা',
-    value: parseFloat(price),
-    status: "যাচাই প্রয়োজন",
-    source_name: "Public Submission"
-  };
-  try {
-    let r = await fetch(API + '/public-submit', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(body)
-    });
-    let j = await r.json();
-    document.getElementById('submitMsg').innerText = '✅ সফলভাবে জমা হয়েছে! ID: ' + (j.id || 'OK');
-  } catch(e){
-    document.getElementById('submitMsg').innerText = '✅ জমা হয়েছে, Admin যাচাই করবে।';
-  }
-}
-
-init();
-setInterval(loadAll, 60000); // প্রতি ১ মিনিটে অটো লাইভ সিঙ্ক
+initApp();
 </script>
 </body>
 </html>
