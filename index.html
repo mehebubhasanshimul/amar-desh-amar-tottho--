@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আমার দেশ, আমার তথ্য</title>
+<style>
+body{font-family:sans-serif;background:#f6f8fa;margin:0;padding:15px;color:#111}
+header{background:#0b6e4f;color:#fff;padding:20px;border-radius:12px;text-align:center}
+h1{margin:0;font-size:24px}
+.card{background:#fff;padding:15px;border-radius:12px;margin-top:15px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+select,input,button{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #ddd;font-size:16px}
+button{background:#0b6e4f;color:#fff;border:none;font-weight:bold}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:13px;background:#ffeeba}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border-bottom:1px solid #eee;padding:8px;text-align:left;font-size:14px}
+a{color:#0b6e4f}
+</style>
+</head>
+<body>
+<header>
+<h1>আমার দেশ, আমার তথ্য</h1>
+<p>তথ্য জানুন, তুলনা করুন, সিদ্ধান্ত নিন।</p>
+</header>
+
+<div class="card">
+<h3>🔍 জেলা / পণ্য খুঁজুন</h3>
+<select id="division" onchange="loadDistricts()">
+<option value="">বিভাগ বাছুন</option>
+</select>
+<select id="district"><option value="">জেলা বাছুন</option></select>
+<select id="product">
+<option value="আলু">আলু</option>
+<option value="পেঁয়াজ">পেঁয়াজ</option>
+<option value="চাল">চাল</option>
+<option value="ডিম">ডিম</option>
+<option value="সয়াবিন তেল">সয়াবিন তেল</option>
+<option value="ডিজেল">ডিজেল</option>
+<option value="পেট্রোল">পেট্রোল</option>
+</select>
+<button onclick="searchData()">তথ্য দেখুন</button>
+<p id="result" style="margin-top:10px;">এখানে যাচাইকৃত তথ্য দেখা যাবে। তথ্য না থাকলে "পাওয়া যাচ্ছে না" দেখাবে।</p>
+</div>
+
+<div class="card">
+<h3>📊 সর্বশেষ যাচাইকৃত রেকর্ড</h3>
+<div id="records">লোড হচ্ছে...</div>
+</div>
+
+<div class="card">
+<h3>📝 বাজারদর জমা দিন (Admin যাচাই ছাড়া প্রকাশ হবে না)</h3>
+<input id="p_name" placeholder="পণ্যের নাম - যেমন: আলু">
+<input id="p_market" placeholder="বাজারের নাম">
+<input id="p_price" type="number" placeholder="দাম (টাকা)">
+<input id="p_unit" placeholder="একক - যেমন: কেজি">
+<button onclick="submitPrice()">জমা দিন</button>
+<p id="submitMsg"></p>
+</div>
+
+<div class="card">
+<p><a href="/docs">API Docs</a> | <a href="/admin">Admin Panel</a> | উৎস ছাড়া কোনো তথ্য Live বলা হবে না।</p>
+</div>
+
+<script>
+const API = window.location.origin;
+let divisionsData = {};
+async function init(){
+  let r = await fetch(API + '/districts');
+  let j = await r.json();
+  divisionsData = j.data;
+  let sel = document.getElementById('division');
+  Object.keys(divisionsData).forEach(d=>{
+    let o=document.createElement('option'); o.value=d; o.text=d; sel.appendChild(o);
+  });
+  loadRecords();
+}
+function loadDistricts(){
+  let div = document.getElementById('division').value;
+  let sel = document.getElementById('district');
+  sel.innerHTML='<option value="">জেলা বাছুন</option>';
+  if(divisionsData[div]) divisionsData[div].forEach(d=>{
+    let o=document.createElement('option'); o.value=d; o.text=d; sel.appendChild(o);
+  });
+}
+async function loadRecords(){
+  let r = await fetch(API + '/records');
+  let j = await r.json();
+  if(!j.length){ document.getElementById('records').innerHTML='পাওয়া যাচ্ছে না'; return; }
+  let html='<table><tr><th>পণ্য</th><th>জেলা</th><th>দাম</th><th>উৎস</th><th>Status</th></tr>';
+  j.forEach(x=>{ html+=`<tr><td>${x.item}</td><td>${x.region_name||'-'}</td><td>${x.value||'পাওয়া যাচ্ছে না'} ${x.unit||''}</td><td>${x.source_name||'-'}</td><td><span class="badge">${x.status}</span></td></tr>` });
+  document.getElementById('records').innerHTML=html+'</table>';
+}
+async function searchData(){
+  let dist=document.getElementById('district').value;
+  let prod=document.getElementById('product').value;
+  let r=await fetch(API+'/records');
+  let j=await r.json();
+  let f=j.filter(x=> (!dist || x.region_name==dist) && x.item==prod);
+  if(!f.length){ document.getElementById('result').innerHTML=`<b>${prod} - ${dist||'সব জেলা'}:</b> পাওয়া যাচ্ছে না`; return; }
+  document.getElementById('result').innerHTML=f.map(x=>`${x.item} - ${x.region_name} : ${x.value} ${x.unit} (${x.price_type}) - উৎস: ${x.source_name}`).join('<br>');
+}
+async function submitPrice(){
+  let body={module:"নিত্যপণ্য", item:document.getElementById('p_name').value, region_name:document.getElementById('district').value, market_name:document.getElementById('p_market').value, value:parseFloat(document.getElementById('p_price').value), unit:document.getElementById('p_unit').value, status:"যাচাই প্রয়োজন", source_name:"Public Submission"};
+  let r=await fetch(API+'/public-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  let j=await r.json();
+  document.getElementById('submitMsg').innerText='জমা হয়েছে। Admin যাচাই ছাড়া প্রকাশ হবে না। ID: '+j.id;
+}
+init();
+</script>
+</body>
+</html>
